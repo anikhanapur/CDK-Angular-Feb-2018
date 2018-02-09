@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CalculatorModel } from './CalculatorModel';
 
+
 @Component({
 	selector : 'app-calculator-two',
 	template : `

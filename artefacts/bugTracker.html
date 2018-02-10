@@ -1,4 +1,22 @@
 <!-- 
+
+function getComparerFor(attrName){
+	return function productComparerByCost(p1, p2){
+        if (p1[attrName] < p2[attrName]) return -1;
+        if (p1[attrName] > p2[attrName]) return 1;
+        return 0;
+    }
+}
+
+function getDescendingComparerFor(comparer){
+	return function(p1, p2){
+		return comparer(p1, p2) * -1;
+    }
+}
+
+ -->
+
+<!-- 
 bug-tracker-app
 	app
 		bugTracker
@@ -13,8 +31,8 @@ bug-tracker-app
 	(done) 3. Toggle the 'closed' status of any bug
 	(done) 4. Remove 'closed' bugs
 	(done) 5. Display stats
-	6. Improve bug display
-	7. Sort the bugs
+	(done) 6. Improve bug display
+	(done) 7. Sort the bugs
 	8. Persist the bugs in the localStorage
 	9. Display 'createdAt' for each bug
 	10. Persist the bugs in the server

@@ -29,7 +29,7 @@ export class BugTrackerComponent{
 	}
 	
 	getClosedCount() : number {
-		//console.log('getClosedCount triggered');
+		console.log('getClosedCount triggered');
 		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
 	}
 }

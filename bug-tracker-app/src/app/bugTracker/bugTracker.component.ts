@@ -8,14 +8,16 @@ import { BugOperationsService } from './services/bugOperations.service';
 })
 export class BugTrackerComponent{
 	bugs : IBug[] =  [];
+	newBugName : string = '';
 
 	constructor(private bugOperations : BugOperationsService){
 		
 	}
 
-	onCreateNewClick(bugName : string) : void {
-		let newBug : IBug = this.bugOperations.createNew(bugName);
+	onCreateNewClick() : void {
+		let newBug : IBug = this.bugOperations.createNew(this.newBugName);
 		this.bugs.push(newBug);
+		this.newBugName = '';
 	}
 
 	onBugClick(bug : IBug) : void {
@@ -25,8 +27,9 @@ export class BugTrackerComponent{
 	onRemoveClosedClick() : void {
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
-
+	
 	getClosedCount() : number {
+		//console.log('getClosedCount triggered');
 		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
 	}
 }

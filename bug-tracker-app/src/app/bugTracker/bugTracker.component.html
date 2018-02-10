@@ -13,7 +13,7 @@
 	<ol>
 		<li *ngFor="let bug of (bugs | sort:bugSortAttrName:bugSortDescending)">
 			<span class="bugname" [ngClass]="{closed : bug.isClosed}" (click)="onBugClick(bug)">{{bug.name | trimText:40}}</span>
-			<div class="datetime">[Created At]</div>
+			<div class="datetime" title="{{bug.createdAt | date:'dd-MMM-yyyy hh:mm:ss a'}}">[{{bug.createdAt | elapsed}}]</div>
 		</li>
 		
 	</ol>

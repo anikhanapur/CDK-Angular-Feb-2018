@@ -5,12 +5,12 @@
 </section>
 <section class="sort">
 	<label for="">Order By :</label>
-	<select>
-		<option value=""></option>
-		<option value=""></option>
+	<select [(ngModel)]="bugSortAttrName">
+		<option value="name">Name</option>
+		<option value="isClosed">Status</option>
 	</select>
 	<label for="">Descending ? :</label>
-	<input type="checkbox" >
+	<input type="checkbox" [(ngModel)]="bugSortDescending" >
 </section>
 <section class="edit">
 	<label for="">Bug Name :</label>
@@ -19,7 +19,7 @@
 </section>
 <section class="list">
 	<ol>
-		<li *ngFor="let bug of bugs">
+		<li *ngFor="let bug of (bugs | sort:bugSortAttrName:bugSortDescending)">
 			<span class="bugname" [ngClass]="{closed : bug.isClosed}" (click)="onBugClick(bug)">{{bug.name | trimText:40}}</span>
 			<div class="datetime">[Created At]</div>
 		</li>

@@ -12,7 +12,7 @@ const ALL_PIPES = [
 @NgModule({
 	declarations : ALL_PIPES,
 	imports : [],
-	provider : [],
+	providers : [],
 	exports : ALL_PIPES
 })
 export class UtilsModule{
